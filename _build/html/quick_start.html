@@ -24,6 +24,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="TaskBuster 0.1.0 documentation" href="index.html" />
+    <link rel="prev" title="Requirements" href="requirements.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -36,6 +37,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="requirements.html" title="Requirements"
+             accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="index.html">TaskBuster 0.1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -54,10 +58,7 @@
 <div class="section" id="secret-django-key">
 <h2>Secret Django Key<a class="headerlink" href="#secret-django-key" title="Permalink to this headline">¶</a></h2>
 <p>This boilerplate has the <strong>DJANGO_KEY</strong> setting variable hidden.
-YOu can generate your DJANGO_KEY <a href="#id1"><span class="problematic" id="id2">|django_key|</span></a>.
-.. <a href="#id3"><span class="problematic" id="id4">|django_key|</span></a> raw::html</p>
-<blockquote>
-<div>&lt;a href = &#8220;<a class="reference external" href="http://www.miniwebtool.com/django-secret-key-generator">http://www.miniwebtool.com/django-secret-key-generator</a>&#8221; target = &#8220;_blank&#8221;&gt;here&lt;/a&gt;</div></blockquote>
+YOu can generate your DJANGO_KEY <a href = "http://www.miniwebtool.com/django-secret-key-generator" target = "_blank">here</a>.</p>
 </div>
 <div class="section" id="project-name">
 <h2>Project Name<a class="headerlink" href="#project-name" title="Permalink to this headline">¶</a></h2>
@@ -71,96 +72,98 @@ YOu can generate your DJANGO_KEY <a href="#id1"><span class="problematic" id="id
 </div>
 <div class="section" id="virtual-environments-and-setting-files">
 <h2>Virtual environments and Setting Files<a class="headerlink" href="#virtual-environments-and-setting-files" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>First, you must know your Python 3 path::</dt>
-<dd>$ which python3</dd>
-</dl>
+<p>First, you must know your Python 3 path</p>
+<div class="highlight-python"><div class="highlight"><pre>$ which python3
+</pre></div>
+</div>
 <p>which is something similar to /usr/local/bin/python3.
-Next, create a Development virtual environment with Python 3 installed:</p>
+Next, create a Development virtual environment with Python 3 installed</p>
 <div class="highlight-python"><div class="highlight"><pre>$ mkvirtualenv --python=/usr/local/bin/python3 tb_dev
 </pre></div>
 </div>
 <p>where you might need to change it with your python path.
-Go to the virtual environment folder with:</p>
+Go to the virtual environment folder with</p>
 <div class="highlight-python"><div class="highlight"><pre>$ cd $VIRTUAL_ENV/bin
 </pre></div>
 </div>
-<dl class="docutils">
-<dt>and edit the postactivate file.:</dt>
-<dd>$ vi postactivate</dd>
-<dt>You must add the lines: ::</dt>
-<dd>export DJANGO_SETTINGS_MODULE=&#8221;taskbuster.settings.development&#8221;
-export SECRET_KEY=&#8221;your_secret_django_key&#8221;</dd>
-</dl>
+<p>and edit the postactivate file.</p>
+<div class="highlight-python"><div class="highlight"><pre>$ vi postactivate
+</pre></div>
+</div>
+<p>You must add the lines:</p>
+<div class="highlight-python"><div class="highlight"><pre>export DJANGO_SETTINGS_MODULE=&quot;taskbuster.settings.development&quot;
+export SECRET_KEY=&quot;your_secret_django_key&quot;
+</pre></div>
+</div>
 <p>with your project name and your own secret key.
 Next, edit the <strong>predeactivate</strong> file and add the line:</p>
-<blockquote>
-<div>unset SECRET_KEY</div></blockquote>
-<dl class="docutils">
-<dt>Repeat the last steps for your testing environment::</dt>
-<dd>$ mkvirtualenv &#8211;python=/usr/local/bin/python3 tb_test
+<div class="highlight-python"><div class="highlight"><pre>unset SECRET_KEY
+</pre></div>
+</div>
+<p>Repeat the last steps for your testing environment</p>
+<div class="highlight-python"><div class="highlight"><pre>$ mkvirtualenv --python=/usr/local/bin/python3 tb_test
 $ cd $VIRTUAL_ENV/bin
-$ vi postactivate</dd>
-<dt>where you have to add the lines::</dt>
-<dd>export DJANGO_SETTINGS_MODULE=&#8221;taskbuster.settings.testing&#8221;
-export SECRET_KEY=&#8221;your_secret_django_key&#8221;</dd>
-<dt>and in the predeactivate file::</dt>
-<dd>unset SECRET_KEY</dd>
-<dt>Next, install the packages in each environment::</dt>
-<dd>$ workon tb_dev
+$ vi postactivate
+</pre></div>
+</div>
+<p>where you have to add the lines</p>
+<div class="highlight-python"><div class="highlight"><pre>export DJANGO_SETTINGS_MODULE=&quot;taskbuster.settings.testing&quot;
+export SECRET_KEY=&quot;your_secret_django_key&quot;
+</pre></div>
+</div>
+<p>and in the predeactivate file</p>
+<div class="highlight-python"><div class="highlight"><pre>unset SECRET_KEY
+</pre></div>
+</div>
+<p>Next, install the packages in each environment</p>
+<div class="highlight-python"><div class="highlight"><pre>$ workon tb_dev
 $ pip install -r requirements/development.txt
 $ workon tb_test
-$ pip install -r requirements/testing.txt</dd>
-</dl>
+$ pip install -r requirements/testing.txt
+</pre></div>
+</div>
 </div>
 <div class="section" id="internalization-and-localization">
 <h2>INTERNALIZATION and LOCALIZATION<a class="headerlink" href="#internalization-and-localization" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="settings">
 <h3>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h3>
 <p>The default language for this Project is <strong>English</strong>, and we use internalization to the text into Catalan.
-If you want to change the translation language, or include a new one, you just need to modify the <strong>LANGUAGES</strong> variable in the file <em>settings/base.py</em>. The language codes that define each language can be found <a href="#id5"><span class="problematic" id="id6">|codes_link|</span></a>.
-.. <a href="#id7"><span class="problematic" id="id8">|codes_link|</span></a> raw:: html</p>
-<blockquote>
-<div>&lt;a href=&#8221;<a class="reference external" href="http://msdn.microsoft.com/en-us/library/ms533052(v=vs.85).aspx">http://msdn.microsoft.com/en-us/library/ms533052(v=vs.85).aspx</a>&#8221; target=&#8221;_blank&#8221;&gt;here&lt;/a&gt;</div></blockquote>
-<p>For example if you want to use German you should include::
-LANGUAGES = (</p>
-<blockquote>
-<div>...
-&#8216;de&#8217;, _(&#8220;German&#8221;),
-...</div></blockquote>
-<p>)
-YOu can also specify a dialect, like Luxembourg&#8217;s German with::
-LANGUAGES = (</p>
-<blockquote>
-<div>...
-&#8216;de-lu&#8217;, _(&#8220;Luxemburg&#8217;s German&#8221;),
-...</div></blockquote>
-<p>)
-Note: the name inside the translation function _(&#8220;&#8221;) is the language name in the default language (English).
-More information on the <a href="#id9"><span class="problematic" id="id10">|internationalization_post|</span></a>.
-.. <a href="#id11"><span class="problematic" id="id12">|internationalization_post|</span></a> raw:: html</p>
-<blockquote>
-<div>&lt;a href=&#8221;<a class="reference external" href="http://marinamele.com/taskbuster-django-tutorial/internationalization-localization-languages-time-zones">http://marinamele.com/taskbuster-django-tutorial/internationalization-localization-languages-time-zones</a>&#8221; target=&#8221;_blank&#8221;&gt;TaskBuster post&lt;/a&gt;</div></blockquote>
+If you want to change the translation language, or include a new one, you just need to modify the <strong>LANGUAGES</strong> variable in the file <em>settings/base.py</em>. The language codes that define each language can be found <a href="http://msdn.microsoft.com/en-us/library/ms533052(v=vs.85).aspx" target="_blank">here</a>.</p>
+<p>For example if you want to use German you should include</p>
+<div class="highlight-python"><div class="highlight"><pre>LANGUAGES = (
+        ...
+        &#39;de&#39;, _(&quot;German&quot;),
+        ...
+)
+</pre></div>
+</div>
+<p>YOu can also specify a dialect, like Luxembourg&#8217;s German with</p>
+<div class="highlight-python"><div class="highlight"><pre>LANGUAGES = (
+        ...
+        &#39;de-lu&#39;, _(&quot;Luxemburg&#39;s German&quot;),
+        ...
+)
+</pre></div>
+</div>
+<p>Note: the name inside the translation function _(&#8220;&#8221;) is the language name in the default language (English).
+More information on the <a href="http://marinamele.com/taskbuster-django-tutorial/internationalization-localization-languages-time-zones" target="_blank">TaskBuster post</a>.</p>
 </div>
 <div class="section" id="translation">
 <h3>Translation<a class="headerlink" href="#translation" title="Permalink to this headline">¶</a></h3>
-<dl class="docutils">
-<dt>Go to the terminal, inside the taskbuster_project folder and create the files to translate with::</dt>
-<dd>$ python manage.py makemessages -l ca</dd>
-</dl>
+<p>Go to the terminal, inside the taskbuster_project folder and create the files to translate with</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python manage.py makemessages -l ca
+</pre></div>
+</div>
 <p>change the language &#8220;ca&#8221; for your selected language.
-Next, go to the locale folder of your language:</p>
+Next, go to the locale folder of your language</p>
 <div class="highlight-python"><div class="highlight"><pre>$ cd taskbuster/locale/ca/LC_MESSAGES
 </pre></div>
 </div>
-<p>where taskbuster is your project folder. You have to edit the file <em>django.po</em> and translate the strings. You can find more information about how to translate the strings <a href="#id13"><span class="problematic" id="id14">|translation_strings_post|</span></a>.
-.. <a href="#id15"><span class="problematic" id="id16">|translation_strings_post|</span></a> raw:: html</p>
-<blockquote>
-<div>&lt;a href=&#8221;<a class="reference external" href="http://marinamele.com/taskbuster-django-tutorial/internationalization-localization-languages-time-zones#inter-translation">http://marinamele.com/taskbuster-django-tutorial/internationalization-localization-languages-time-zones#inter-translation</a>&#8221; target=&#8221;_blank&#8221;&gt;here&lt;/a&gt;</div></blockquote>
-<dl class="docutils">
-<dt>Once the translation is done, compile your messages with::</dt>
-<dd>$ python manage.py compilemessages -l ca</dd>
-</dl>
+<p>where taskbuster is your project folder. You have to edit the file <em>django.po</em> and translate the strings. You can find more information about how to translate the strings <a href="http://marinamele.com/taskbuster-django-tutorial/internationalization-localization-languages-time-zones#inter-translation" target="_blank">here</a>.</p>
+<p>Once the translation is done, compile your messages with</p>
+<div class="highlight-python"><div class="highlight"><pre>$ python manage.py compilemessages -l ca
+</pre></div>
+</div>
 </div>
 <div class="section" id="tests">
 <h3>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h3>
@@ -206,6 +209,9 @@ $ python manage.py compilemessages -l ca</p>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="requirements.html"
+                        title="previous chapter">Requirements</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
